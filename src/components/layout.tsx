@@ -6,7 +6,6 @@
  */
 
 import * as React from "react"
-//import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
@@ -47,11 +46,7 @@ const Layout = (props: LayoutProps) => (
 )
 
 interface LayoutProps {
-  children: Array<React.ReactElement>
+  children: any
 }
-
-// Layout.propTypes = {
-//   children: PropTypes.node.isRequired,
-// }
 
 export default Layout

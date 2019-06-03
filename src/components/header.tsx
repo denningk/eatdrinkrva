@@ -35,12 +35,8 @@ interface HeaderProps {
   siteTitle?: string
 }
 
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-//   siteTitle: ``,
-// }
+Header.defaultProps = {
+  siteTitle: ``,
+}
 
 export default Header

@@ -1,0 +1,20 @@
+# Use Docker image for node
+image: node:latest
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
+
+build:
+  script:
+    - npm install
+
+test:
+  script:
+    - npm run test
+    
+deploy:
+  script: 
+    - npm run deploy

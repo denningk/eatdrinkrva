@@ -62,3 +62,4 @@ deploy_production:
     url: https://eatdrinkrva.com
   only:
     - tags
+    

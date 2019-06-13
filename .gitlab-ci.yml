@@ -10,7 +10,7 @@ cache:
     - node_modules/
 
 build_site:
-  image: node:10.16.0-alpine
+  image: node:10.16.0
   stage: build
   script:
     - npm install
@@ -20,7 +20,7 @@ build_site:
       - public
 
 test_site:
-  image: node:10.16.0-alpine
+  image: node:10.16.0
   stage: test
   script:
     - npm run test

@@ -11,6 +11,8 @@ build_site:
   stage: build
   script:
     - npm install
+    - npm run type-check
+    - npm run lint
     - npm run build
   cache:
     key: ${CI_COMMIT_REF_SLUG}
@@ -24,8 +26,6 @@ test_site:
   image: node:10.16.0
   stage: test
   script:
-    - npm run lint
-    - npm run type-check
     - npm run test
   cache:
     key: ${CI_COMMIT_REF_SLUG}

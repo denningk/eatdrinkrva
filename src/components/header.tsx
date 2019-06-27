@@ -1,14 +1,9 @@
 import { Link } from "gatsby"
-//import PropTypes from "prop-types"
 import * as React from "react"
+import headerStyles from "./header.module.css"
 
 const Header = (props: HeaderProps) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+  <header className={headerStyles.header}>
     <div
       style={{
         margin: `0 auto`,

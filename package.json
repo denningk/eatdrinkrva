@@ -23,7 +23,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "typescript-plugin-css-modules": "^1.2.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.14",

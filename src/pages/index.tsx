@@ -15,9 +15,9 @@ function IndexPage(props: IndexProps) {
       <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
-      {restaurants.map(({ node }: { node: restaurantNode }) => (
-        <h1>
-          <a href={node.siteURL} target="_blank">
+      {restaurants.map(({ node }: { node: RestaurantNode }) => (
+        <h1 key={node.name}>
+          <a rel="noopener noreferrer" href={node.siteURL} target="_blank">
             {node.name}
           </a>
         </h1>
@@ -34,13 +34,13 @@ interface IndexProps {
   data: any
 }
 
-interface restaurantNode {
+interface RestaurantNode {
   name?: string
   siteURL?: string
-  happyHour?: happyHour[]
+  happyHour?: HappyHour[]
 }
 
-interface happyHour {
+interface HappyHour {
   special: string
   frequency: string
 }

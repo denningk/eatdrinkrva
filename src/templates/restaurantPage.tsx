@@ -10,12 +10,15 @@ function RestaurantPageTemplate(props: RestaurantPageTemplate) {
     <Layout>
       <SEO title={restaurant.name} />
       <h1>{restaurant.name}</h1>
-      <ul>
-        {/* {restaurant.happyHour.map((special) => (
-          <li>{special.special}</li>
-        ))} */}
-      </ul>
-      <Link to={`/`}>Return Home</Link>
+      <div>
+        {restaurant.happyHours.map((happyHour: any) => (
+          <div key={happyHour.special}>
+            {happyHour.frequency}: {happyHour.special}
+          </div>
+        ))}
+      </div>
+      <a href={restaurant.siteURL}>Visit restaurant website.</a>
+      <Link to={`/`}>Return to EatDrinkRVA</Link>
     </Layout>
   )
 }
@@ -28,9 +31,10 @@ export default RestaurantPageTemplate
 
 export const pageQuery = graphql`
   query RestaurantBySlug($slug: String!) {
-    restaurantsJson(name: { eq: "Foo Dog" }) {
+    restaurantsJson(slug: { eq: $slug }) {
       name
-      happyHour {
+      siteURL
+      happyHours {
         special
         frequency
       }

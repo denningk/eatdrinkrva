@@ -1,11 +1,9 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `RestaurantsJson`) {
-    const slug = `/${node.name.replace(/\W+/g, "-").toLowerCase()}/`
-    console.log(encodeURI(slug))
+    const slug = `${node.name.replace(/\W+/g, "-").toLowerCase()}/`
     createNodeField({
       node,
       name: `slug`,
@@ -14,22 +12,39 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-// exports.createPages = ({ graphql, actions }) => {
-//   const { createPage } = actions
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
-//   const restaurantPage = path.resolve(`./src/templates/restaurantPage.js`)
-
-//   return graphql(
-//     `
-//       {
-//           allRestaurantsJson {
-//               edges {
-//                   node {
-
-//                   }
-//               }
-//           }
-//       }
-//       `
-//   )
-// }
+  return graphql(
+    `
+      {
+        site {
+          siteMetadata {
+            happyHourPath
+          }
+        }
+        allRestaurantsJson {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `
+  ).then(result => {
+    result.data.allRestaurantsJson.edges.forEach(({ node }) => {
+      createPage({
+        path: result.data.site.siteMetadata.happyHourPath + node.fields.slug,
+        component: path.resolve(`./src/templates/restaurantPage.tsx`),
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          slug: node.fields.slug,
+        },
+      })
+    })
+  })
+}

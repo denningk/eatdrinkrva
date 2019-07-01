@@ -18,6 +18,8 @@ function RestaurantPageTemplate(props: RestaurantPageTemplate) {
         ))}
       </div>
       <a href={restaurant.siteURL}>Visit restaurant website.</a>
+      <br />
+      <br />
       <Link to={`/`}>Return to EatDrinkRVA</Link>
     </Layout>
   )
@@ -30,8 +32,8 @@ interface RestaurantPageTemplate {
 export default RestaurantPageTemplate
 
 export const pageQuery = graphql`
-  query RestaurantBySlug($slug: String!) {
-    restaurantsJson(slug: { eq: $slug }) {
+  query($slug: String!) {
+    restaurantsJson(fields: { slug: { eq: $slug } }) {
       name
       siteURL
       happyHours {

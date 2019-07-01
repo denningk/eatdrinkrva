@@ -12,20 +12,13 @@ function IndexPage(props: IndexProps) {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
       {restaurants.map(({ node }: { node: RestaurantNode }) => (
         <h1 key={node.name}>
-          <a rel="noopener noreferrer" href={node.siteURL} target="_blank">
+          <Link to={data.site.siteMetadata.happyHourPath + node.fields.slug}>
             {node.name}
-          </a>
+          </Link>
         </h1>
       ))}
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
-      <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   )
 }
@@ -38,6 +31,7 @@ interface RestaurantNode {
   name?: string
   siteURL?: string
   happyHour?: HappyHour[]
+  fields?: any
 }
 
 interface HappyHour {
@@ -52,11 +46,15 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        happyHourPath
       }
     }
     allRestaurantsJson {
       edges {
         node {
+          fields {
+            slug
+          }
           name
           siteURL
         }

@@ -2,6 +2,7 @@
   {
     "name": "Foo Dog",
     "siteURL": "http://www.foodogrva.com/",
+    "description": "Awesome place for Ramen",
     "happyHours": [
       {
         "special": "$1 off bottles, cans, and drafts;$4 Highballs",
@@ -16,6 +17,7 @@
   {
     "name": "3 Monkeys",
     "siteURL": "http://www.3monkeysfan.com/",
+    "description": "Great for Sunday brunch",
     "happyHours": [
       {
         "special": "$3 off Bottled Beer, $2 off Draft Beer, $3 off Wine, $4 Specialty Cocktails",

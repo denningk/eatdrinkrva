@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import restaurantStyles from "./restaurantPage.module.scss"
 
 function RestaurantPageTemplate(props: RestaurantPageTemplate) {
   const restaurant = props.data.restaurantsJson
@@ -9,18 +10,21 @@ function RestaurantPageTemplate(props: RestaurantPageTemplate) {
   return (
     <Layout>
       <SEO title={restaurant.name} />
-      <h1>{restaurant.name}</h1>
-      <div>
+      <h3>
+        <Link className={restaurantStyles.back} to={`/`}>
+          Back
+        </Link>
+      </h3>
+      <h1 className={restaurantStyles.restaurant}>{restaurant.name}</h1>
+      <h3 className={restaurantStyles.description}>{restaurant.description}</h3>
+      <ul>
         {restaurant.happyHours.map((happyHour: any) => (
-          <div key={happyHour.special}>
+          <li className={restaurantStyles.special} key={happyHour.special}>
             {happyHour.frequency}: {happyHour.special}
-          </div>
+          </li>
         ))}
-      </div>
-      <a href={restaurant.siteURL}>Visit restaurant website.</a>
+      </ul>
       <br />
-      <br />
-      <Link to={`/`}>Return to EatDrinkRVA</Link>
     </Layout>
   )
 }
@@ -35,7 +39,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     restaurantsJson(fields: { slug: { eq: $slug } }) {
       name
-      siteURL
+      description
       happyHours {
         special
         frequency

@@ -6,36 +6,32 @@
  */
 
 import * as React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import layoutStyles from "./layout.module.scss"
+import "./index.scss"
 
 import Header from "./header"
 
-const Layout = (props: LayoutProps) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
+function Layout(props: LayoutProps) {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
         }
       }
-    `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div>
-          <main>{props.children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </>
-    )}
-  />
-)
+    }
+  `)
+
+  return (
+    <div className={layoutStyles.main}>
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <div>
+        <main>{props.children}</main>
+      </div>
+    </div>
+  )
+}
 
 interface LayoutProps {
   children: any

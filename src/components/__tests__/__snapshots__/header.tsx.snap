@@ -2,20 +2,12 @@
 
 exports[`Header renders correctly 1`] = `
 <header>
-  <div>
-    <h1>
-      <a
-        href="/"
-        style={
-          Object {
-            "color": "white",
-            "textDecoration": "none",
-          }
-        }
-      >
-        Default Starter
-      </a>
-    </h1>
-  </div>
+  <h1>
+    <a
+      href="/"
+    >
+      Default Starter
+    </a>
+  </h1>
 </header>
 `;

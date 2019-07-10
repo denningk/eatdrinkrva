@@ -24,12 +24,14 @@ function Layout(props: LayoutProps) {
   `)
 
   return (
-    <div className={layoutStyles.main}>
+    <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
-        <main>{props.children}</main>
+      <div className={layoutStyles.main}>
+        <div>
+          <main>{props.children}</main>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

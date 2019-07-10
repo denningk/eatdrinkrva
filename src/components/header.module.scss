@@ -2,9 +2,13 @@
   margin-bottom: 1.45rem;
   font-family: "Lato", sans-serif;
   text-align: center;
+  background: lightblue;
+  position: sticky;
+  top: 0;
 
   .siteTitle {
     text-decoration: none;
-    color: #ff1654;
+    color: white;
+    font-size: 2.5rem;
   }
 }

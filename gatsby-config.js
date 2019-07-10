@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `EatDrinkRVA`,
@@ -16,10 +20,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        name: `restaurants`,
-        path: `${__dirname}/content/restaurantData`,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {

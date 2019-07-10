@@ -2,7 +2,7 @@ const path = require(`path`)
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `RestaurantsJson`) {
+  if (node.internal.type === `ContentfulRestaurant`) {
     const slug = `${node.name.replace(/\W+/g, "-").toLowerCase()}/`
     createNodeField({
       node,
@@ -23,7 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
             happyHourPath
           }
         }
-        allRestaurantsJson {
+        allContentfulRestaurant {
           edges {
             node {
               fields {
@@ -35,7 +35,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `
   ).then(result => {
-    result.data.allRestaurantsJson.edges.forEach(({ node }) => {
+    result.data.allContentfulRestaurant.edges.forEach(({ node }) => {
       createPage({
         path: result.data.site.siteMetadata.happyHourPath + node.fields.slug,
         component: path.resolve(`./src/templates/restaurantPage.tsx`),

@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import restaurantStyles from "./restaurantPage.module.scss"
 
 function RestaurantPageTemplate(props: RestaurantPageTemplate) {
-  const restaurant = props.data.restaurantsJson
+  const restaurant = props.data.contentfulRestaurant
 
   return (
     <Layout>
@@ -16,7 +16,9 @@ function RestaurantPageTemplate(props: RestaurantPageTemplate) {
         </Link>
       </h3>
       <h1 className={restaurantStyles.restaurant}>{restaurant.name}</h1>
-      <h3 className={restaurantStyles.description}>{restaurant.description}</h3>
+      <h3 className={restaurantStyles.description}>
+        {restaurant.description.internal.content}
+      </h3>
       <ul>
         {restaurant.happyHours.map((happyHour: any) => (
           <li className={restaurantStyles.special} key={happyHour.special}>
@@ -37,9 +39,13 @@ export default RestaurantPageTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    restaurantsJson(fields: { slug: { eq: $slug } }) {
+    contentfulRestaurant(fields: { slug: { eq: $slug } }) {
       name
-      description
+      description {
+        internal {
+          content
+        }
+      }
       happyHours {
         special
         frequency

@@ -9,13 +9,16 @@ import indexStyles from "./indexPage.module.scss"
 function IndexPage(props: IndexProps) {
   const { data } = props
 
-  const restaurants = data.allRestaurantsJson.edges
+  const restaurants = data.allContentfulRestaurant.edges
   return (
     <Layout>
       <SEO title="Home" />
+      <div className={indexStyles.indexText}>
+        Food and drink specials found all over Richmond, VA 😋
+      </div>
       {restaurants.map(({ node }: { node: RestaurantNode }) => (
-        <>
-          <h2 key={node.name}>
+        <div className={indexStyles.restaurantContainer} key={node.name}>
+          <h2>
             <Link
               className={indexStyles.restaurant}
               to={data.site.siteMetadata.happyHourPath + node.fields.slug}
@@ -30,7 +33,7 @@ function IndexPage(props: IndexProps) {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       ))}
     </Layout>
   )
@@ -62,14 +65,14 @@ export const pageQuery = graphql`
         happyHourPath
       }
     }
-    allRestaurantsJson {
+    allContentfulRestaurant {
       edges {
         node {
           fields {
             slug
           }
           name
-          siteURL
+          siteUrl
           happyHours {
             special
             frequency

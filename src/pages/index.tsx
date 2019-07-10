@@ -17,23 +17,25 @@ function IndexPage(props: IndexProps) {
         Food and drink specials found all over Richmond, VA 😋
       </div>
       {restaurants.map(({ node }: { node: RestaurantNode }) => (
-        <div className={indexStyles.restaurantContainer} key={node.name}>
-          <h2>
-            <Link
-              className={indexStyles.restaurant}
-              to={data.site.siteMetadata.happyHourPath + node.fields.slug}
-            >
-              {node.name}
-            </Link>
-          </h2>
-          <ul>
-            {node.happyHours.map((happyHour: any) => (
-              <li className={indexStyles.special} key={happyHour.special}>
-                {happyHour.frequency}: {happyHour.special}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <Link
+          className={indexStyles.link}
+          key={node.name}
+          to={data.site.siteMetadata.happyHourPath + node.fields.slug}
+        >
+          <div className={indexStyles.restaurantContainer}>
+            <h2 className={indexStyles.restaurant}>
+              {node.name}{" "}
+              <span className={indexStyles.emoji}>{node.emoji}</span>
+            </h2>
+            <ul>
+              {node.happyHours.map((happyHour: any) => (
+                <li className={indexStyles.special} key={happyHour.special}>
+                  {happyHour.frequency}: {happyHour.special}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Link>
       ))}
     </Layout>
   )
@@ -48,6 +50,7 @@ interface RestaurantNode {
   siteURL?: string
   happyHours?: HappyHour[]
   fields?: any
+  emoji?: string
 }
 
 interface HappyHour {
@@ -73,9 +76,11 @@ export const pageQuery = graphql`
           }
           name
           siteUrl
+          emoji
           happyHours {
             special
             frequency
+            allDay
           }
         }
       }

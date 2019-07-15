@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import indexStyles from "./indexPage.module.scss"
+import SpecialsTimeTable from "../components/specialsTimeTable"
 
 function IndexPage(props: IndexProps) {
   const { data } = props
@@ -23,17 +24,8 @@ function IndexPage(props: IndexProps) {
           to={data.site.siteMetadata.happyHourPath + node.fields.slug}
         >
           <div className={indexStyles.restaurantContainer}>
-            <h2 className={indexStyles.restaurant}>
-              {node.name}{" "}
-              <span className={indexStyles.emoji}>{node.emoji}</span>
-            </h2>
-            <ul>
-              {node.happyHours.map((happyHour: any) => (
-                <li className={indexStyles.special} key={happyHour.special}>
-                  {happyHour.frequency}: {happyHour.special}
-                </li>
-              ))}
-            </ul>
+            <h2 className={indexStyles.restaurant}>{node.name}</h2>
+            <SpecialsTimeTable happyHours={node.happyHours} />
           </div>
         </Link>
       ))}
@@ -50,12 +42,6 @@ interface RestaurantNode {
   siteURL?: string
   happyHours?: HappyHour[]
   fields?: any
-  emoji?: string
-}
-
-interface HappyHour {
-  special: string
-  frequency: string
 }
 
 export default IndexPage
@@ -76,11 +62,14 @@ export const pageQuery = graphql`
           }
           name
           siteUrl
-          emoji
           happyHours {
             special
-            frequency
-            allDay
+            timeSlot {
+              startEndTime
+              daily
+              frequency
+              allDay
+            }
           }
         }
       }

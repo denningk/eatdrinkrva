@@ -48,7 +48,12 @@ export const pageQuery = graphql`
       }
       happyHours {
         special
-        frequency
+        timeSlot {
+          startEndTime
+          daily
+          frequency
+          allDay
+        }
       }
     }
   }

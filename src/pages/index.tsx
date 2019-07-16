@@ -63,6 +63,7 @@ export const pageQuery = graphql`
           name
           siteUrl
           happyHours {
+            specials
             special
             timeSlot {
               startEndTime

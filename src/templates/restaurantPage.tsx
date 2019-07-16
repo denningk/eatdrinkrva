@@ -48,6 +48,7 @@ export const pageQuery = graphql`
       }
       happyHours {
         special
+        specials
         timeSlot {
           startEndTime
           daily

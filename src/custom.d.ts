@@ -11,6 +11,8 @@ declare module "*.module.scss" {
 interface HappyHour {
   timeSlot: TimeSlot[]
   special: string
+  specials: string[]
+  specialsFormat?: string[]
 }
 
 interface TimeSlot {
@@ -18,4 +20,5 @@ interface TimeSlot {
   frequency?: string[]
   daily: boolean
   allDay: boolean
+  frequencyFormat?: string[]
 }

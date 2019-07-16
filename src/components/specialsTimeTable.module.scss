@@ -1,0 +1,33 @@
+.special {
+  color: black;
+  font-family: "Roboto", sans-serif;
+  margin-top: 0.9rem;
+  font-size: 1.25rem;
+
+  .timeSlotContainer {
+    margin-left: 0.75rem;
+
+    .timeSlot {
+      display: flex;
+      font-size: 1rem;
+
+      .days {
+        display: flex;
+        margin-right: 1rem;
+
+        .day {
+          margin-right: 0.5rem;
+        }
+
+        .daily {
+          width: 8.95rem;
+          font-weight: bold;
+        }
+
+        .bold {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

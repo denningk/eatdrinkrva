@@ -44,7 +44,7 @@ function SpecialsTimeTable(props: TimeTableProps) {
         <div className={specialStyles.special} key={happyHour.special}>
           <div>
             {happyHour.specials.map(special => (
-              <div>{special}</div>
+              <div key={special}>{special}</div>
             ))}
           </div>
           <div className={specialStyles.timeSlotContainer}>

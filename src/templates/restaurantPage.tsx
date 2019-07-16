@@ -17,7 +17,7 @@ function RestaurantPageTemplate(props: RestaurantPageTemplate) {
       </h3>
       <h1 className={restaurantStyles.restaurant}>{restaurant.name}</h1>
       <h3 className={restaurantStyles.description}>
-        {restaurant.description.internal.content}
+        {restaurant.description && restaurant.description.internal.content}
       </h3>
       <ul>
         {restaurant.happyHours.map((happyHour: any) => (

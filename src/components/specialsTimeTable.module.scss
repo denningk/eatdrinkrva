@@ -1,31 +1,35 @@
 .special {
   color: black;
-  font-family: "Roboto", sans-serif;
-  margin-top: 0.9rem;
+  font-family: "Open Sans Condensed", sans-serif;
+  margin-top: 0.5rem;
   font-size: 1.25rem;
 
   .timeSlotContainer {
     margin-left: 0.75rem;
+    color: lightslategrey;
 
     .timeSlot {
       display: flex;
       font-size: 1rem;
+      width: 100%;
 
       .days {
         display: flex;
         margin-right: 1rem;
+        width: 50%;
 
         .day {
           margin-right: 0.5rem;
+          font-weight: 100;
+          width: 50%;
         }
 
         .daily {
-          width: 8.95rem;
           font-weight: bold;
         }
 
         .bold {
-          font-weight: bold;
+          font-weight: 900;
         }
       }
     }

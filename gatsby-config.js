@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `EatDrinkRVA`,
+    title: `EatDrinkR🍕A`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     happyHourPath: `/richmond-happy-hour/`,
@@ -30,7 +30,11 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Lato:700", "Roboto: 400"],
+          families: [
+            "Lato:700",
+            "Roboto:100,400,900",
+            "Open Sans Condensed:100,300,400,900",
+          ],
         },
       },
     },

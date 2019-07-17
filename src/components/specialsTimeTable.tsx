@@ -5,18 +5,6 @@ import classNames from "classnames"
 import { useEffect, useState } from "react"
 
 function SpecialsTimeTable(props: TimeTableProps) {
-  // const daysArrayToRange = (daysArray: string[], isDaily: boolean): string => {
-  //   if (isDaily || daysArray.length > 6) {
-  //     return `Daily`
-  //   } else if (daysArray.length === 1) {
-  //     return daysArray[0].substring(0, 1)
-  //   } else {
-  //     return `${daysArray[0].substring(0, 1)}-${daysArray[
-  //       daysArray.length - 1
-  //     ].substring(0, 1)}`
-  //   }
-  // }
-
   const daysTemplate = ["S", "M", "T", "W", "TH", "F", "S"]
 
   // On initialization, create a formatted list of days

@@ -1,8 +1,9 @@
 .special {
   color: black;
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Lato", sans-serif;
   margin-top: 0.5rem;
   font-size: 1.25rem;
+  font-weight: 400;
 
   .timeSlotContainer {
     margin-left: 0.75rem;
@@ -12,6 +13,8 @@
       display: flex;
       font-size: 1rem;
       width: 100%;
+      font-weight: 400;
+      font-family: "Roboto", sans-serif;
 
       .days {
         display: flex;

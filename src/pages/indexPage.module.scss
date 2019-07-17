@@ -15,18 +15,23 @@
   padding: 4%;
   margin-bottom: 5%;
 
-  .restaurant {
-    color: #1e607c;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 1.4rem;
+  .restaurantWithIcon {
+    display: flex;
+    justify-content: space-between;
 
-    .emoji {
-      font-size: 1rem;
+    .restaurant {
+      color: #1e607c;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+      font-size: 1.4rem;
+
+      .emoji {
+        font-size: 1rem;
+      }
     }
-  }
 
-  .restaurant:hover {
-    color: #70c1b3;
+    .restaurant:hover {
+      color: #70c1b3;
+    }
   }
 }

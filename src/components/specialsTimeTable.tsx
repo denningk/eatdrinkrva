@@ -5,7 +5,7 @@ import classNames from "classnames"
 import { useEffect, useState } from "react"
 
 function SpecialsTimeTable(props: TimeTableProps) {
-  const daysTemplate = ["S", "M", "T", "W", "TH", "F", "S"]
+  const daysTemplate = ["S", "M", "T", "W", "TH", "F", "SA"]
 
   // On initialization, create a formatted list of days
   // Ex: ["Thursday"] becomes ["TH"]
@@ -16,7 +16,7 @@ function SpecialsTimeTable(props: TimeTableProps) {
         time =>
           time.frequency &&
           (time.frequencyFormat = time.frequency.map(day =>
-            day === "Thursday"
+            ["Thursday", "Saturday"].includes(day)
               ? day.substring(0, 2).toUpperCase()
               : day.substring(0, 1)
           ))
@@ -45,9 +45,9 @@ function SpecialsTimeTable(props: TimeTableProps) {
                   {timeSlot.daily ? (
                     <div className={specialStyles.daily}>Daily</div>
                   ) : (
-                    daysTemplate.map(day => (
+                    daysTemplate.map((day: string, id: number) => (
                       <div
-                        key={day}
+                        key={id}
                         className={classNames(specialStyles.day, {
                           [specialStyles.bold]: timeSlot.frequencyFormat.includes(
                             day

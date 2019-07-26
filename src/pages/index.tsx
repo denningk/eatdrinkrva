@@ -2,11 +2,11 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import indexStyles from "./indexPage.module.scss"
 import SpecialsTimeTable from "../components/specialsTimeTable"
-import { create } from "react-test-renderer"
+import DirectionsLogo from "../images/outline-directions-24px.svg"
+import InfoLogo from "../images/outline-info-24px.svg"
 
 function IndexPage(props: IndexProps) {
   const { data } = props
@@ -25,21 +25,22 @@ function IndexPage(props: IndexProps) {
         Food and drink specials found all over Richmond, VA 😋
       </div>
       {restaurants.map(({ node }: { node: RestaurantNode }) => (
-        <div
-          className={indexStyles.link}
-          key={node.name}
-          // to={data.site.siteMetadata.happyHourPath + node.fields.slug}
-        >
+        <div className={indexStyles.link} key={node.name}>
           <div className={indexStyles.restaurantContainer}>
             <div className={indexStyles.restaurantWithIcon}>
               <h2 className={indexStyles.restaurant}>{node.name}</h2>
               <div>
+                <Link
+                  to={data.site.siteMetadata.happyHourPath + node.fields.slug}
+                >
+                  <InfoLogo />
+                </Link>
                 <a
                   href={createMapsLink(node.name)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={props.data.file.publicURL} />
+                  <DirectionsLogo />
                 </a>
               </div>
             </div>

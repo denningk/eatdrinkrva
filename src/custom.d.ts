@@ -8,6 +8,11 @@ declare module "*.module.scss" {
   export default classes
 }
 
+declare module "*.svg" {
+  const value: any
+  export default value
+}
+
 interface HappyHour {
   timeSlot: TimeSlot[]
   special: string

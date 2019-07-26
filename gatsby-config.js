@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `EatDrinkR🍕A`,
+    title: `EatDrinkRVA`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     happyHourPath: `/richmond-happy-hour/`,
@@ -31,6 +31,14 @@ module.exports = {
       options: {
         google: {
           families: ["Lato:400,700", "Roboto:100,400,500,900"],
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/,
         },
       },
     },

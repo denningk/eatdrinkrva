@@ -30,7 +30,15 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Lato:700", "Roboto: 400"],
+          families: ["Lato:400,700", "Roboto:100,400,500,900"],
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/,
         },
       },
     },

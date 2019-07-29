@@ -1,0 +1,40 @@
+.special {
+  color: black;
+  font-family: "Lato", sans-serif;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+
+  .timeSlotContainer {
+    margin-left: 0.75rem;
+    color: lightslategrey;
+
+    .timeSlot {
+      display: flex;
+      font-size: 1rem;
+      width: 100%;
+      font-weight: 400;
+      font-family: "Roboto", sans-serif;
+
+      .days {
+        display: flex;
+        margin-right: 1rem;
+        width: 50%;
+
+        .day {
+          margin-right: 0.5rem;
+          font-weight: 100;
+          width: 50%;
+        }
+
+        .daily {
+          font-weight: bold;
+        }
+
+        .bold {
+          font-weight: 900;
+        }
+      }
+    }
+  }
+}

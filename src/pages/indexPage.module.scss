@@ -1,27 +1,37 @@
 .indexText {
-  font-family: "Roboto", sans-serif;
-  color: #247ba0;
+  font-family: "Lato", sans-serif;
+  color: #1e607c;
+  font-size: 1.4rem;
   margin-bottom: 5%;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .restaurantContainer {
-  border: 1px solid lightblue;
+  background: white;
   border-radius: 8px;
-  padding: 10%;
+  padding: 4%;
   margin-bottom: 5%;
 
-  .restaurant {
-    color: #247ba0;
-    text-decoration: none;
-    font-family: "Roboto", sans-serif;
-  }
+  .restaurantWithIcon {
+    display: flex;
+    justify-content: space-between;
 
-  .restaurant:hover {
-    color: #70c1b3;
-  }
+    .restaurant {
+      color: #1e607c;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+      font-size: 1.4rem;
 
-  .special {
-    color: #3d8377;
-    font-family: "Roboto", sans-serif;
+      .emoji {
+        font-size: 1rem;
+      }
+    }
+
+    .restaurant:hover {
+      color: #70c1b3;
+    }
   }
 }

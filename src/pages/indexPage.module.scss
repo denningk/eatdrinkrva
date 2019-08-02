@@ -4,34 +4,3 @@
   font-size: 1.4rem;
   margin-bottom: 5%;
 }
-
-.link {
-  text-decoration: none;
-}
-
-.restaurantContainer {
-  background: white;
-  border-radius: 8px;
-  padding: 4%;
-  margin-bottom: 5%;
-
-  .restaurantWithIcon {
-    display: flex;
-    justify-content: space-between;
-
-    .restaurant {
-      color: #1e607c;
-      font-family: "Roboto", sans-serif;
-      font-weight: 500;
-      font-size: 1.4rem;
-
-      .emoji {
-        font-size: 1rem;
-      }
-    }
-
-    .restaurant:hover {
-      color: #70c1b3;
-    }
-  }
-}

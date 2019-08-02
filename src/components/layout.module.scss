@@ -1,3 +1,8 @@
 .main {
   margin: 0 5% 0;
+  @media all and (min-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    margin: 0 25% 0;
+  }
 }

@@ -9,7 +9,7 @@ import restaurantStyles from "./singleRestaurant.module.scss"
 function SingleRestaurant(props: SingleResstaurantProps) {
   const createMapsLink = (location: string) => {
     return `https://www.google.com/maps/dir/?api=1&destination=${encodeURI(
-      location
+      location + " Richmond"
     )}`
   }
 
@@ -17,7 +17,12 @@ function SingleRestaurant(props: SingleResstaurantProps) {
     <div className={restaurantStyles.link} key={props.node.name}>
       <div className={restaurantStyles.restaurantContainer}>
         <div className={restaurantStyles.restaurantWithIcon}>
-          <h2 className={restaurantStyles.restaurant}>{props.node.name}</h2>
+          <Link
+            className={restaurantStyles.link}
+            to={props.sitePath + props.node.fields.slug}
+          >
+            <h2 className={restaurantStyles.restaurant}>{props.node.name}</h2>
+          </Link>
           <div>
             <Link to={props.sitePath + props.node.fields.slug}>
               <InfoLogo />

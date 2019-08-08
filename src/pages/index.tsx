@@ -18,8 +18,9 @@ function IndexPage(props: IndexProps) {
         Food and drink specials found all over Richmond, VA 😋
       </div>
       <div>
-        {restaurants.map(({ node }: { node: RestaurantNode }) => (
+        {restaurants.map(({ node }: { node: RestaurantNode }, id: number) => (
           <SingleRestaurant
+            key={id}
             node={node}
             sitePath={data.site.siteMetadata.happyHourPath}
           />

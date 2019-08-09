@@ -5,9 +5,10 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `EatDrinkRVA`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Richmond happy hour specials around the city. Food, drink, trivia, and much more around Richmond, Virginia.`,
+    author: `@denningk`,
     happyHourPath: `/richmond-happy-hour/`,
+    siteURL: `https://eatdrinkrva.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

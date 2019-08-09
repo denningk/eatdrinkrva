@@ -54,7 +54,7 @@ export const pageQuery = graphql`
     file(relativePath: { eq: "outline-directions-24px.svg" }) {
       publicURL
     }
-    allContentfulRestaurant {
+    allContentfulRestaurant(sort: { fields: [name], order: ASC }) {
       edges {
         node {
           fields {

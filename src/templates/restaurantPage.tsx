@@ -24,10 +24,12 @@ function RestaurantPageTemplate(props: RestaurantPageTemplate) {
       <iframe
         className={restaurantStyles.mapFrame}
         frameBorder={0}
-        scrolling="no"
         marginHeight={0}
         marginWidth={0}
-        src={`https://www.google.com/maps?q=821+cafe+richmond&amp;output=embed`}
+        src={`https://www.google.com/maps/embed/v1/place?q=${encodeURI(
+          restaurant.name + " Richmond"
+        )}&key=${process.env.GATSBY_GOOGLE_API_KEY}`}
+        allowFullScreen
       />
     </Layout>
   )

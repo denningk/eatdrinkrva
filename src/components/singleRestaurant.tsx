@@ -18,16 +18,21 @@ function SingleRestaurant(props: SingleResstaurantProps) {
       <div className={restaurantStyles.restaurantContainer}>
         <div className={restaurantStyles.restaurantWithIcon}>
           <Link
+            aria-label={`More details about ${props.node.name}`}
             className={restaurantStyles.link}
             to={props.sitePath + props.node.fields.slug}
           >
             <h2 className={restaurantStyles.restaurant}>{props.node.name}</h2>
           </Link>
           <div>
-            <Link to={props.sitePath + props.node.fields.slug}>
+            <Link
+              aria-label={`More details about ${props.node.name}`}
+              to={props.sitePath + props.node.fields.slug}
+            >
               <InfoLogo />
             </Link>
             <a
+              aria-label={`Directions to ${props.node.name}`}
               href={createMapsLink(props.node.name)}
               target="_blank"
               rel="noopener noreferrer"

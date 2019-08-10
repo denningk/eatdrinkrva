@@ -15,8 +15,8 @@ function IndexPage(props: IndexProps) {
     <Layout>
       <SEO title="Richmond Food and Drink Specials" />
       <h2 className={indexStyles.indexText}>
-        Food and drink happy hour specials found all over Richmond, VA 😋
-        Updated daily!
+        Food and drink happy hour specials found all over Richmond, VA 😋 New
+        specials added daily!
       </h2>
       <div>
         {restaurants.map(({ node }: { node: RestaurantNode }, id: number) => (

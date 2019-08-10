@@ -8,7 +8,7 @@ module.exports = {
     description: `Richmond happy hour specials around the city. Food, drink, trivia, and much more around Richmond, Virginia.`,
     author: `@denningk`,
     happyHourPath: `/richmond-happy-hour/`,
-    siteURL: `https://eatdrinkrva.com`,
+    siteUrl: `https://eatdrinkrva.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

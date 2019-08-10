@@ -29,6 +29,12 @@ function Layout(props: LayoutProps) {
       <div className={layoutStyles.main}>
         <div>
           <main>{props.children}</main>
+          <div className={layoutStyles.contact}>
+            Contact us with suggestions or feedback at{" "}
+            <a href="mailto:richmondhappyhours@gmail.com">
+              richmondhappyhours@gmail.com
+            </a>
+          </div>
         </div>
       </div>
     </>

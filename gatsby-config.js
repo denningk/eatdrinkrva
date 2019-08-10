@@ -5,9 +5,10 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `EatDrinkRVA`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Richmond happy hour specials around the city. Food, drink, trivia, and much more around Richmond, Virginia.`,
+    author: `@denningk`,
     happyHourPath: `/richmond-happy-hour/`,
+    siteUrl: `https://eatdrinkrva.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -44,20 +45,41 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `EatDrinkRichmond`,
+        short_name: `EatDrinkRVA`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#007bad`,
+        theme_color: `#007bad`,
+        display: `standalone`,
+        icon: `src/images/smiley-icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-145414926-1",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://eatdrinkrva.com`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://eatdrinkrva.com",
+        sitemap: "https://eatdrinkrva.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,

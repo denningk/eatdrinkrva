@@ -1,0 +1,50 @@
+.restaurantName {
+  width: 60%;
+
+  .link {
+    text-decoration: none;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  width: 25%;
+  justify-content: space-between;
+
+  @media all and (min-width: 780px) {
+    width: 10%;
+  }
+
+  .logo {
+    fill: #1e607c;
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.restaurantContainer {
+  background: white;
+  border-radius: 8px;
+  padding: 4%;
+  margin-bottom: 5%;
+
+  .restaurantWithIcon {
+    display: flex;
+    justify-content: space-between;
+
+    .restaurant {
+      color: #1e607c;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+      font-size: 1.4rem;
+
+      .emoji {
+        font-size: 1rem;
+      }
+    }
+
+    .restaurant:hover {
+      color: #70c1b3;
+    }
+  }
+}

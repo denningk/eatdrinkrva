@@ -1,5 +1,25 @@
-.link {
-  text-decoration: none;
+.restaurantName {
+  width: 60%;
+
+  .link {
+    text-decoration: none;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  width: 25%;
+  justify-content: space-between;
+
+  @media all and (min-width: 780px) {
+    width: 10%;
+  }
+
+  .logo {
+    fill: #1e607c;
+    height: 30px;
+    width: 30px;
+  }
 }
 
 .restaurantContainer {

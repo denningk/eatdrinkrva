@@ -10,7 +10,7 @@ function RestaurantPageTemplate(props: RestaurantPageTemplate) {
 
   return (
     <Layout>
-      <SEO title={restaurant.name} />
+      <SEO title={restaurant.name + " Food and Drink Specials"} />
       <h3>
         <Link className={restaurantStyles.back} to={`/`}>
           Back

@@ -80,6 +80,8 @@ deploy_production:
   script:
     - pip install awscli
     - aws s3 sync public/ s3://eatdrinkrva.com/ --delete
+    - aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths "/*"
+    - aws cloudfront create-invalidation --distribution-id ${WWW_CF_DISTRIBUTION_ID} --paths "/*"
   environment:
     name: production
     url: https://eatdrinkrva.com

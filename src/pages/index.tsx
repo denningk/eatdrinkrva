@@ -13,10 +13,11 @@ function IndexPage(props: IndexProps) {
 
   return (
     <Layout>
-      <SEO title="Home" />
-      <div className={indexStyles.indexText}>
-        Food and drink specials found all over Richmond, VA 😋
-      </div>
+      <SEO title="Richmond Food and Drink Specials" />
+      <h2 className={indexStyles.indexText}>
+        Food and drink happy hour specials found all over Richmond, VA 😋
+        Updated daily!
+      </h2>
       <div>
         {restaurants.map(({ node }: { node: RestaurantNode }, id: number) => (
           <SingleRestaurant

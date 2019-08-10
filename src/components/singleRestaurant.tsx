@@ -14,9 +14,9 @@ function SingleRestaurant(props: SingleResstaurantProps) {
   }
 
   return (
-    <div className={restaurantStyles.link} key={props.node.name}>
-      <div className={restaurantStyles.restaurantContainer}>
-        <div className={restaurantStyles.restaurantWithIcon}>
+    <div key={props.node.name} className={restaurantStyles.restaurantContainer}>
+      <div className={restaurantStyles.restaurantWithIcon}>
+        <div className={restaurantStyles.restaurantName}>
           <Link
             aria-label={`More details about ${props.node.name}`}
             className={restaurantStyles.link}
@@ -24,25 +24,25 @@ function SingleRestaurant(props: SingleResstaurantProps) {
           >
             <h2 className={restaurantStyles.restaurant}>{props.node.name}</h2>
           </Link>
-          <div>
-            <Link
-              aria-label={`More details about ${props.node.name}`}
-              to={props.sitePath + props.node.fields.slug}
-            >
-              <InfoLogo />
-            </Link>
-            <a
-              aria-label={`Directions to ${props.node.name}`}
-              href={createMapsLink(props.node.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <DirectionsLogo />
-            </a>
-          </div>
         </div>
-        <SpecialsTimeTable happyHours={props.node.happyHours} />
+        <div className={restaurantStyles.logoContainer}>
+          <Link
+            aria-label={`More details about ${props.node.name}`}
+            to={props.sitePath + props.node.fields.slug}
+          >
+            <InfoLogo className={restaurantStyles.logo} />
+          </Link>
+          <a
+            aria-label={`Directions to ${props.node.name}`}
+            href={createMapsLink(props.node.name)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <DirectionsLogo className={restaurantStyles.logo} />
+          </a>
+        </div>
       </div>
+      <SpecialsTimeTable happyHours={props.node.happyHours} />
     </div>
   )
 }
